@@ -15151,14 +15151,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_forms__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
+  "use strict";
+
   Object(_modules_modals__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
+  _modules_forms__WEBPACK_IMPORTED_MODULE_3___default()();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Andrey\\Desktop\\window js practice\\src\\js\\modules\\forms.js: Unexpected token (42:16)\n\n\u001b[0m \u001b[90m 40 | \u001b[39m                })\u001b[0m\n\u001b[0m \u001b[90m 41 | \u001b[39m                \u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m statusMessage\u001b[33m.\u001b[39mtextContent \u001b[33m=\u001b[39m message\u001b[33m.\u001b[39mfailure)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 42 | \u001b[39m                \u001b[33m.\u001b[39m\u001b[36mfinally\u001b[39m(() \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 43 | \u001b[39m                    clearInputs()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 44 | \u001b[39m                    setTimeout(() \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 45 | \u001b[39m                        statusMessage\u001b[33m.\u001b[39mremove()\u001b[33m;\u001b[39m\u001b[0m\n    at Parser.raise (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:6975:17)\n    at Parser.unexpected (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:8368:16)\n    at Parser.parseExprAtom (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:9627:20)\n    at Parser.parseExprSubscripts (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:9210:23)\n    at Parser.parseMaybeUnary (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:9190:21)\n    at Parser.parseExprOps (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:9056:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:9029:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:8975:21)\n    at Parser.parseExpression (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:8925:23)\n    at Parser.parseStatementContent (C:\\Users\\Andrey\\Desktop\\window js practice\\node_modules\\@babel\\parser\\lib\\index.js:10785:23)");
 
 /***/ }),
 
@@ -15211,7 +15228,8 @@ const modals = () => {
   }
 
   bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
-  bindModal('.phone_link', '.popup', '.popup .popup_close'); // showModalByTime('.popup', 60000);
+  bindModal('.phone_link', '.popup', '.popup .popup_close');
+  showModalByTime('.popup', 60000);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);

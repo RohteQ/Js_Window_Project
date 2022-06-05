@@ -1,18 +1,32 @@
-const modals = () => {
+const modals = (state) => {
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
             close = document.querySelector (closeSelector),
-            windows = document.querySelectorAll('[data-modal]');
+            windows = document.querySelectorAll('[data-modal]'),
+            scroll = calcScroll();
 
 
         trigger.forEach(item => {
             //item - every trigger
             //when transfer in func some elems with same selector on everyEl addEventlistener
-            item.addEventListener('click', (e) => {
+            let event = item.addEventListener('click', (e) => {
                 if (e.target) {
                     e.preventDefault();
                  }
+
+
+                if (modal.classList.contains('popup_calc_profile')) {
+                    if (!state.form || !state.width || !state.height) {
+                        event.removeEventListener();
+                    }
+                }
+                if (modal.classList.contains('popup_calc_end')) {
+                    if (!state.type || !state.profile) {
+                        event.removeEventListener();
+                    }
+                }
+
 
             windows.forEach(item => {
                 item.style.display = 'none';
@@ -20,6 +34,7 @@ const modals = () => {
     
                 modal.style.display = 'block';
                 document.body.style.overflow = "hidden";
+                document.body.style.marginRight = `${scroll}px`;
                 // OR manipulate  classes in Bootstrap
                 // document.body.classList.add('modal-open');
     
@@ -28,6 +43,7 @@ const modals = () => {
         close.addEventListener('click', () => {
             modal.style.display = 'none';
             document.body.style.overflow = "";
+            document.body.style.marginRight = `0px`;
             // OR manipulate  classes in Bootstrap
             // document.body.classList.remove('modal-open');
             windows.forEach(item => {
@@ -44,6 +60,7 @@ const modals = () => {
                 });
                 modal.style.display = 'none';
                 document.body.style.overflow = "";
+                document.body.style.marginRight = `0px`;
                 //OR  manipulate  classes in Bootstrap
                 // document.body.classList.remove('modal-open');
 
@@ -56,6 +73,22 @@ const modals = () => {
             document.querySelector(selector).style.display = 'block';
             document.body.style.overflow = "hidden";
         }, time);
+    }
+//for not jumping window when modal open(cause scroll)
+    function calcScroll() {
+        let div = document.createElement('div');
+
+        div.style.width = '50px';
+        div.style.height = '50px';
+        div.style.overflowY = 'scroll';
+        div.style.visibility = 'hidden';
+
+        document.body.appendChild(div);
+
+        let scrollWidth = div.offsetWidth - div.clientWidth;
+        div.remove();
+
+        return scrollWidth;
     }
 
     bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
